@@ -1,5 +1,16 @@
-current directory: /home/mamani/Desktop/mh-amani.github.io/vendor/bundle/ruby/2.5.0/gems/racc-1.5.2/ext/racc/cparse
-/usr/bin/ruby2.5 -r ./siteconf20210316-5265-u9tyc0.rb extconf.rb
-mkmf.rb can't find header files for ruby at /usr/lib/ruby/include/ruby.h
+current directory: /home/masani/Desktop/mh-amani.github.io/vendor/bundle/ruby/2.5.0/gems/racc-1.5.2/ext/racc/cparse
+/usr/bin/ruby2.5 -r ./siteconf20210316-13295-lmaec1.rb extconf.rb
+checking for rb_ary_subseq()... yes
+creating Makefile
 
-extconf failed, exit code 1
+current directory: /home/masani/Desktop/mh-amani.github.io/vendor/bundle/ruby/2.5.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /home/masani/Desktop/mh-amani.github.io/vendor/bundle/ruby/2.5.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/masani/Desktop/mh-amani.github.io/vendor/bundle/ruby/2.5.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cparse.so ./.gem.20210316-13295-q5yn0f/racc

@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "mh.amani"
+title                    : "Mohammad Hossein Amani"
 title_separator          : "-"
 name                     : &name "Mohammad Hossein Amani"
-description              : &description "Who am I?"
+description              : &description "Who am I though?"
 url                      : https://mh-amani.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "mh-amani/mh-amani.github.io"
@@ -82,13 +82,13 @@ analytics:
 author:
   name             : "Mohammad Hossein Amani"
   avatar           : "profile.png"
-  bio              : "Scientific intern at Institute of science and technology Austria(IST Austria)"
+  bio              : "Scientific intern at Institute of science and technology Austria (IST Austria)"
   location         : "Klosterneuburg, Austria"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
-  email            :`"mohammad.amani@ist.ac.at"`
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
+  pubmed           :  
+  googlescholar    :  
+  email            : "mohammad.amani@ist.ac.at"
+  researchgate     :  
   uri              :
   bitbucket        :
   codepen          :
@@ -100,16 +100,16 @@ author:
   google_plus      :
   keybase          :
   instagram        :
-  impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  impactstory      : 
   lastfm           :
-  linkedin         : "https://www.linkedin.com/in/mhamani/"
-  orcid            : "http://orcid.org/yourorcidurl"
+  linkedin         : "mhamani"
+  orcid            : 
   pinterest        :
   soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    : 
   steam            :
   tumblr           :
-  twitter          : "mhamani"
+  twitter          : 
   vine             :
   weibo            :
   xing             :
