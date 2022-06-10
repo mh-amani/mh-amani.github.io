@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: but people usually call me masani
+subtitle: (but people usually call me masani)
 
 profile:
   align: right
@@ -24,6 +24,6 @@ Even before that, I was a student at [Sharif university](https://en.sharif.edu/)
 
 Outside of work, I like my friends, books or good writing of almost any kind, mountains, peanut butter, dogs, running, bicycles, the earthy smell after rain, and coffee.
 
-I sometimes take photos from things that I find interesting. You can check them out in my [unsplash](https://unsplash.com/@masani){:target="\_blank"} and [instagram](https://www.instagram.com/masaniii98/).
+I sometimes take photos from things that I find interesting. You can check them out in my [unsplash](https://unsplash.com/@masani) and [instagram](https://www.instagram.com/masaniii98/).
 
 As a passionate traveller, I think that [CouchSurfing](https://www.couchsurfing.com/people/masani) is one of the best things in the world. Feel encouraged to text me if you were around and looking for a place, or if you simply wanted to hang out.
