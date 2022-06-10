@@ -16,8 +16,14 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hello friend,
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I am an incoming Ph.D. student at EPFL.
+Before starting my Ph.D., I spent a lovely year at [IST Austria](http://marcomondelli.com/group.html) solving deep learning with Marco, and a couple of months at [SPOC](https://www.epfl.ch/labs/spoc/members/) doing belief propagation on random graphs with [Giovanni](https://people.epfl.ch/giovanni.piccioli?lang=en) and [Lenka](https://people.epfl.ch/lenka.zdeborova/?lang=en).
+Even before that, I was a student at [Sharif university](https://en.sharif.edu/), and an intern at [CUHK](https://www.ie.cuhk.edu.hk/main/index.shtml) with the amazing [Pascal Vontobel](https://sites.google.com/site/pascalvontobel/).
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Outside of work, I like my friends, books or good writing of almost any kind, mountains, peanut butter, dogs, running, bicycles, the earthy smell after rain, and coffee.
+
+I sometimes take photos from things that I find interesting. You can check them out in my [unsplash](https://unsplash.com/@masani){:target="\_blank"} and [instagram](https://www.instagram.com/masaniii98/).
+
+As a passionate traveller, I think that [CouchSurfing](https://www.couchsurfing.com/people/masani) is one of the best things in the world. Feel encouraged to text me if you were around and looking for a place, or if you simply wanted to hang out.
