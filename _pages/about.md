@@ -12,14 +12,21 @@ profile:
 
 
 news: false  # includes a list of news items
-selected_papers: false # includes a list of papers marked as "selected={true}"
+selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
 Hello friend,
 
 I am an incoming Ph.D. student at EPFL.
-Before starting my Ph.D., I spent a lovely year at [IST Austria](http://marcomondelli.com/group.html) solving deep learning with Marco, and a couple of months at [SPOC](https://www.epfl.ch/labs/spoc/members/) doing belief propagation on random graphs with [Giovanni](https://people.epfl.ch/giovanni.piccioli?lang=en) and [Lenka](https://people.epfl.ch/lenka.zdeborova/?lang=en).
+I am interested in making sense of why machine learning models produce the output
+that they do. In more formal terms, my research interests are explainability in
+represention learning and the science of deep learning.
+
+Before starting my Ph.D., I spent a lovely year at [IST Austria](http://marcomondelli.com/group.html),
+solving deep learning with [Marco](http://marcomondelli.com) and [Simone](https://simone-bombari.github.io/).
+Then a couple of months at [SPOC](https://www.epfl.ch/labs/spoc/members/) doing belief propagation on random graphs with [Giovanni](https://people.epfl.ch/giovanni.piccioli?lang=en) and [Lenka](https://people.epfl.ch/lenka.zdeborova/?lang=en).
+
 Even before that, I was a student at [Sharif university](https://en.sharif.edu/), and an intern at [CUHK](https://www.ie.cuhk.edu.hk/main/index.shtml) with the amazing [Pascal Vontobel](https://sites.google.com/site/pascalvontobel/).
 
 Outside of work, I like my friends, books or good writing of almost any kind, mountains, peanut butter, dogs, running, bicycles, the earthy smell after rain, and coffee.
