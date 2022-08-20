@@ -8,6 +8,7 @@ profile:
   align: right
   image: prof_pic.jpg
   address: >
+    <p>Ph.D. Student in Computer Science</p>
     <p>EPFL, Switzerland</p>
 
 
