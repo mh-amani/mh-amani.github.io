@@ -19,10 +19,10 @@ social: true  # includes social icons at the bottom of the page
 
 Hello friend,
 
-I am an incoming Ph.D. student at EPFL.
+I am a first-year Ph.D. student at EPFL.
 I am interested in making sense of why machine learning models produce the output
 that they do. In more formal terms, my research interests are explainability in
-represention learning and the science of deep learning.
+represention learning and the science of deep learning. Here's my [CV](/assets/pdf/CV.pdf)
 
 Before starting my Ph.D., I spent a lovely year at [IST Austria](http://marcomondelli.com/group.html),
 solving deep learning with [Marco](http://marcomondelli.com) and [Simone](https://simone-bombari.github.io/).
