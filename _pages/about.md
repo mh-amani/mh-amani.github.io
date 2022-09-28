@@ -8,7 +8,7 @@ profile:
   align: right
   image: prof_pic.jpg
   address: >
-    <p>Ph.D. Student in Computer Science</p>
+    <p>Ph.D. student in computer science</p>
     <p>EPFL, Switzerland</p>
 
 
@@ -19,9 +19,7 @@ social: true  # includes social icons at the bottom of the page
 
 Hello friend,
 
-I am a first-year Ph.D. student at EPFL, interested in making sense of why machine learning models produce the output
-that they do. In more formal terms, my research interests are explainability in
-represention learning and the science of deep learning. Here's my [CV](/assets/pdf/CV.pdf).
+I am a first-year Ph.D. student at EPFL, broadly interested in understanding and developing intelligence. For now, I am studying the compositional, symbolic representation learning. Here's my [CV](/assets/pdf/CV.pdf)!
 
 Before starting my Ph.D., I spent sometime at [SPOC](https://www.epfl.ch/labs/spoc/members/), [IST Austria](http://marcomondelli.com/group.html), and  [CUHK](https://www.ie.cuhk.edu.hk/main/index.shtml).
 
