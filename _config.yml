@@ -125,7 +125,7 @@ news_limit: 5
 
 # Markdown and syntax highlight
 markdown: kramdown
-highlighter: rouge
+highlighter: green
 highlight_theme_light: github  # https://github.com/jwarby/jekyll-pygments-themes
 highlight_theme_dark: native  # https://github.com/jwarby/jekyll-pygments-themes
 kramdown:
@@ -203,7 +203,7 @@ jekyll-archives:
 scholar:
 
   last_name: amani
-  first_name: [mohammad hossein, mh.]
+  first_name: mohammad hossein
 
   style: apa
   locale: en
