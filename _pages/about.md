@@ -19,9 +19,9 @@ social: true  # includes social icons at the bottom of the page
 
 Hello friend,
 
-I am a first-year Ph.D. student at EPFL, broadly interested in understanding and developing intelligence. For now, I am studying the compositionality problem in NLP and symbolic representation learning. Here's my [CV](/assets/pdf/CV.pdf)!
+I am a first-year Ph.D. student at EPFL, broadly interested in understanding and developing (artificial) intelligence. For now, I am studying the compositionality problem in NLP and symbolic representation learning. Here's my [CV](/assets/pdf/CV.pdf)!
 
-Before starting my Ph.D., I spent sometime at [SPOC](https://www.epfl.ch/labs/spoc/members/), [IST Austria](http://marcomondelli.com/group.html), and  [CUHK](https://www.ie.cuhk.edu.hk/main/index.shtml).
+Before starting my Ph.D., I spent some time at [SPOC](https://www.epfl.ch/labs/spoc/members/), [IST Austria](http://marcomondelli.com/group.html), and  [CUHK](https://www.ie.cuhk.edu.hk/main/index.shtml).
 
 Outside of work, I like my friends, books or good writing of almost any kind, mountains, peanut butter, dogs, running, bicycles, the earthy smell after rain, and coffee.
 
