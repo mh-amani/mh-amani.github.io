@@ -26,7 +26,7 @@ Before starting my Ph.D., I spent some time at [SPOC](https://www.epfl.ch/labs/s
 Outside of work, I like my friends, [books](https://www.goodreads.com/masani
 ) or good writing of almost any kind, mountains, peanut butter, dogs, running, bicycles, the earthy smell after rain, and coffee.
 
-I sometimes take photos from things that I find interesting. You can check them out on [instagram](https://www.instagram.com/masaniii98/) or [unsplash](https://unsplash.com/@masani).
+I sometimes take photos from things that I find interesting. You can check them out on [instagram](https://www.instagram.com/andthennwhat/) or [unsplash](https://unsplash.com/@masani).
 
 
 
