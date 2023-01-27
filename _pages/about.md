@@ -24,10 +24,7 @@ I am a first-year Ph.D. student at EPFL, broadly interested in understanding and
 Before starting my Ph.D., I spent some time at [SPOC](https://www.epfl.ch/labs/spoc/members/), [IST Austria](http://marcomondelli.com/group.html), and  [CUHK](https://www.ie.cuhk.edu.hk/main/index.shtml).
 
 Outside of work, I like my friends, [books](https://www.goodreads.com/masani
-) or good writing of almost any kind, mountains, peanut butter, dogs, running, bicycles, the earthy smell after rain, and coffee.
+) or good writing of almost any kind, mountains, peanut butter, [indie songs](https://open.spotify.com/user/1196080627?si=846b4cd7b02243b5), dogs, running, bicycles, the earthy smell after rain, [adventurous backpacking trips](https://www.couchsurfing.com/people/masani), and coffee.
 
 I sometimes take photos from things that I find interesting. You can check them out on [instagram](https://www.instagram.com/andthennwhat/) or [unsplash](https://unsplash.com/@masani).
 
-
-
-As a passionate traveller, I am an avid fan of [CouchSurfing](https://www.couchsurfing.com/people/masani). Feel encouraged to text me if you were around and looking for a place, or if you simply wanted to hang out.
