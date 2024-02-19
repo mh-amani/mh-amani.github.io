@@ -28,7 +28,7 @@
           {{reference}}
         {%- else %}
           <!-- Title -->
-          <a href="http://arxiv.org/abs/{{ entry.arxiv }}"><div class="title">{{entry.title}}</div></a>
+          <div class="title"> <a href="http://arxiv.org/abs/{{ entry.arxiv }}"> {{entry.title}} </a> </div>
           <!-- Author -->
           <div class="author">
           {% assign author_array_size = entry.author_array | size %}
