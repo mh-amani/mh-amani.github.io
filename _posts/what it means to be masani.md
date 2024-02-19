@@ -1,4 +1,4 @@
-<!-- ---
+---
 layout: distill
 title: what it means to be masani
 description: an ongoing scroll of what I think makes me me
@@ -110,4 +110,4 @@ Countries I’ve Visited
 Armenia, Czech Republic, Greece, Hungary, Italy, Turkey, United Arab Emirates
 
 Countries I’ve Lived In
-Austria, Hong Kong, Iran, Switzerland -->
+Austria, Hong Kong, Iran, Switzerland
