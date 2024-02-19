@@ -8,6 +8,25 @@ authors:
   - name: masani
 
 bibliography: 2018-12-22-distill.bib
+# Below is an example of injecting additional post-specific styles.
+# If you use this post as a template, delete this _styles block.
+# _styles: >
+#   .fake-img {
+#     background: #bbb;
+#     border: 1px solid rgba(0, 0, 0, 0.1);
+#     box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
+#     margin-bottom: 12px;
+#   }
+#   .fake-img p {
+#     font-family: monospace;
+#     color: white;
+#     text-align: left;
+#     margin: 12px 0;
+#     text-align: center;
+#     font-size: 16px;
+#   }
+
+---
 
 Who am I? that very much depends on what you mean by the word 'am'. I find the verb 'to be' very odd. There is a deterministic, factual sense to this word.
 take this last sentence for example; I find the verb to be very odd has a different sense compared to The verb 'to be' is an odd verb. This verb, I think, has a certain objective connotation that other words do not have. 
