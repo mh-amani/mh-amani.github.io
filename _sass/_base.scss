@@ -298,7 +298,7 @@ footer.sticky-bottom {
 
 .post-list {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 0; // Remove the default margin from 20px
   padding: 0;
   li {
     border-bottom: 1px solid var(--global-divider-color);
