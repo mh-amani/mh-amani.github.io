@@ -34,7 +34,7 @@ pagination:
     {% assign categories = post.categories | join: "" %}
 
     <li>
-      <h4>
+      <h5>
         {% if post.redirect == blank %}
           <a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         {% else %}
@@ -47,7 +47,7 @@ pagination:
             <a class="post-title" href="{{ post.redirect | relative_url }}">{{ post.title }}</a>
           {% endif %}
         {% endif %}
-      </h4>
+      </h5>
       <p>{{ post.description }}</p>
       <!-- <p class="post-meta">
         {{ read_time }} min read &nbsp; &middot; &nbsp;

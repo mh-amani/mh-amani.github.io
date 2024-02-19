@@ -85,7 +85,7 @@ panelbear_analytics:  # panelbear analytics site ID (format: XXXXXXXXX)
 
 blog_name: cavallette # blog_name will be displayed in your blog page
 blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
-blog_description: random non-academic things that don't make sense, every once in a while
+blog_description: random sequence of words that don't make much sense, every once in a while
 permalink: /blog/:year/:title/
 
 # Pagination
