@@ -24,8 +24,11 @@ Here's my [CV](/assets/pdf/CV.pdf)!
 
 Before starting my Ph.D., I spent some time at [SPOC](https://www.epfl.ch/labs/spoc/members/), [IST Austria](http://marcomondelli.com/group.html), and [CUHK](https://www.ie.cuhk.edu.hk/main/index.shtml) where I studied more mathematically themed problems in machine learning.
 
-Outside of work, I like bicycles, [books](https://www.goodreads.com/masani
-) or good writing of almost any kind, mountains, peanut butter, genuine conversations, [indie songs](https://open.spotify.com/user/1196080627?si=846b4cd7b02243b5), dogs, running, steadfastness, climbing, the earthy smell after rain, wholesome vegetrian food, embarking on adventures, and coffee.
+Outside of work, I like [bicycles](https://www.strava.com/athletes/mohammadhossein_amani), [books](https://www.goodreads.com/masani) 
+or good writing of almost any kind, peanut butter, genuine conversations, [indie songs](https://open.spotify.com/user/1196080627?si=846b4cd7b02243b5), dogs, running, steadfastness, climbing, the earthy smell after rain, wholesome vegetrian food, embarking on adventures, and coffee.
 
 I sometimes take photos from things that I find interesting. You can check them out on [instagram](https://www.instagram.com/andthennwhat/) or [unsplash](https://unsplash.com/@masani).
 
+You can contact me anonymously [here](https://tellonym.me/masanii), but note that I wouldn't be able to reply to you unless
+you leave some contact information in your message. Start your message with the square root of the answer to life, the universe, and everything 
+so I know it's not a spam from a bot. (Or at least it's a spam from a bot that knows the answer to life, the universe, and everything.)

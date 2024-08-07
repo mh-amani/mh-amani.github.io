@@ -127,13 +127,17 @@
         {%- endif %}
 
           <!-- Links/Buttons -->
-          <!-- <div class="links">
+          <div class="links">
           {%- if entry.abstract %}
             <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
           {%- endif %}
           {%- if entry.arxiv %}
             <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
           {%- endif %}
+          {%- if entry.workshop_link %}
+            <a href="{{ entry.workshop_link }}" class="btn btn-sm z-depth-0" role="button">Workshop Paper</a>
+          {%- endif %}
+
           {%- if entry.bibtex_show %}
             <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
           {%- endif %}
@@ -177,7 +181,7 @@
           {%- if entry.website %}
             <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
           {%- endif %}
-          </div> -->
+          </div>
 
           {% if entry.abstract -%}
           <!-- Hidden abstract block -->
