@@ -19,7 +19,7 @@ social: true  # includes social icons at the bottom of the page
 
 Hello friend,
 
-Since September 2022 I am a Ph.D. student at EPFL, where I study symbolic representation learning and sequence-to-sequence modeling. 
+Since September 2022 I am a Ph.D. student at EPFL, where I study symbolic representation learning, reinforcement learning, and sequence-to-sequence modeling. 
 Here's my [CV](/assets/pdf/CV.pdf)!
 
 Before starting my Ph.D., I spent some time at [SPOC](https://www.epfl.ch/labs/spoc/members/), [IST Austria](http://marcomondelli.com/group.html), and [CUHK](https://www.ie.cuhk.edu.hk/main/index.shtml) where I studied more mathematically themed problems in machine learning.
