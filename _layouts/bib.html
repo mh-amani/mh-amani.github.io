@@ -134,8 +134,13 @@
           <!-- {%- if entry.arxiv %}
             <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
           {%- endif %} -->
-          {%- if entry.workshop_link %}
+          <!-- {%- if entry.workshop_link %}
             <a href="{{ entry.workshop_link }}" class="btn btn-sm z-depth-0" role="button">Workshop</a>
+          {%- endif %} -->
+          {%- if entry.workshop_link %}
+            <a href="{{ entry.workshop_link }}" class="btn btn-sm z-depth-0" role="button">
+              {{ entry.workshop_name | default('Workshop') }}
+            </a>
           {%- endif %}
 
           {%- if entry.bibtex_show %}
