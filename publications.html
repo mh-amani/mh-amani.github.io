@@ -1,0 +1,48 @@
+---
+title: Publications
+permalink: /publications/
+layout: default
+---
+
+
+
+{% for pub in site.data.publications %}
+    <div class="publication" style="margin-bottom: 20px;">
+        <p style="margin-bottom: 5px;">
+            <strong>{{ pub.title }}</strong> <br>
+            
+            <span style="font-size: 14px; color: #444;">
+                {% assign authors_list = pub.authors | split: ", " %}
+                {% for author in authors_list %}
+                    {% if author contains "Amani" %}
+                        <strong>{{ author | strip }}</strong>
+                    {% else %}
+                        {{ author | strip }}
+                    {% endif %}
+                    {% if forloop.last == false %},{% endif %}
+                {% endfor %}
+            </span>
+            ,
+            {% if pub.journal %}
+                <i>{{ pub.journal }}</i>, 
+            {% endif %}
+            {{ pub.year }}.
+        </p>
+
+        <p style="font-size: 14px; margin-top: 3px; margin-bottom: 0px;">
+            {% if pub.arxiv %}
+                <a href="https://arxiv.org/abs/{{ pub.arxiv }}" target="_blank">ArXiv</a>
+            {% endif %}
+            {% if pub.code %}
+                <span> | </span> <a href="{{ pub.code }}" target="_blank">Code</a>
+            {% endif %}
+            {% if pub.poster %}
+                <span> | </span> <a href="/assets/pdf/{{ pub.poster }}" target="_blank">Poster</a>
+            {% endif %}
+            {% if pub.workshop_link %}
+                <span> | </span> <a href="{{ pub.workshop_link }}" target="_blank">{{ pub.workshop_name }}</a>
+            {% endif %}
+        </p>
+        <hr style="border: none; border-top: 1px solid #ddd; margin: 12px 0;">
+    </div>
+{% endfor %}

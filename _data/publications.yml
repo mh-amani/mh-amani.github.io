@@ -1,0 +1,29 @@
+
+- title: "Symbolic autoencoding for self-supervised sequence learning"
+  authors: "Mohammad Hossein Amani, Nicolas Mario Baldwin, Amin Mansouri, Martin Josifoski, Maxime Peyrard, Robert West"
+  year: 2024
+  arxiv: 2402.10575
+  selected: true
+  preview: sigmae.png
+  code: "https://github.com/mh-amani/sigmae/tree/base"
+  poster: ICML2024_sigmae_poster.pdf
+  workshop_link: "https://differentiable.xyz/papers-2024/paper_32.pdf"
+  workshop_name: "ICML'24 Workshop"
+
+- title: "Sharp asymptotics on the compression of two-layer neural networks"
+  authors: "Mohammad Hossein Amani, Simone Bombari, Rattana  Pukdee, Stefano Rini, Marco Mondelli"
+  year: 2022
+  arxiv: 2205.08199
+  selected: true
+  preview: pruning.png
+  workshop_link: "https://ieeexplore.ieee.org/document/9965870"
+  workshop_name: "ITW'22"
+
+- title: "Memorization and optimization in deep neural networks with minimum over-parameterization"
+  authors: "Simone Bombari, Mohammad Hossein Amani, Marco Mondelli"
+  year: 2022
+  arxiv: 2205.10217
+  selected: true
+  preview: ntk.png
+  workshop_link: "https://proceedings.neurips.cc/paper_files/paper/2022/file/323746f0ae2fbd8b6f500dc2d5c5f898-Paper-Conference.pdf"
+  workshop_name: "Neurips'22"
