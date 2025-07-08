@@ -1,3 +1,10 @@
+- title: "RL for Reasoning by Adaptively Revealing Rationales"
+  authors: "Mohammad Hossein Amani, Aryo Lotfi, Nicolas Mario Baldwin, Samy Bengio, Mehrdad Farajtabar, Emmanuel Abbe, Robert West"
+  year: 2025
+  arxiv: 2506.18110
+  selected: true
+  preview: rl_for_reasoning.png
+  code: "https://github.com/mh-amani/LLM-RL"
 
 - title: "Symbolic autoencoding for self-supervised sequence learning"
   authors: "Mohammad Hossein Amani, Nicolas Mario Baldwin, Amin Mansouri, Martin Josifoski, Maxime Peyrard, Robert West"
