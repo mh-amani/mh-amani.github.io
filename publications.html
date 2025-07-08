@@ -31,7 +31,7 @@ layout: default
 
         <p style="font-size: 14px; margin-top: 3px; margin-bottom: 0px;">
             {% if pub.arxiv %}
-                <a href="https://arxiv.org/abs/{{ pub.arxiv }}" target="_blank">ArXiv</a>
+                <a href="{{ pub.arxiv }}" target="_blank">ArXiv</a>
             {% endif %}
             {% if pub.code %}
                 <span> | </span> <a href="{{ pub.code }}" target="_blank">Code</a>
