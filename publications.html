@@ -4,6 +4,29 @@ permalink: /publications/
 layout: default
 ---
 
+<style>
+.pub-description {
+    display: none;
+    margin-top: 1px;
+    font-size: 14px;
+    color: #333;
+}
+.toggle-btn {
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.toggle-btn:hover {
+    color: #000;
+}
+
+.toggle-btn-container {
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+</style>
 
 
 {% for pub in site.data.publications %}
@@ -21,10 +44,9 @@ layout: default
                     {% endif %}
                     {% if forloop.last == false %},{% endif %}
                 {% endfor %}
-            </span>
-            ,
+            </span>,
             {% if pub.journal %}
-                <i>{{ pub.journal }}</i>, 
+                <i>{{ pub.journal }}</i>,
             {% endif %}
             {{ pub.year }}.
         </p>
@@ -43,6 +65,23 @@ layout: default
                 <span> | </span> <a href="{{ pub.workshop_link }}" target="_blank">{{ pub.workshop_name }}</a>
             {% endif %}
         </p>
+
+        {% if pub.description %}
+            <p class="toggle-btn-container">
+                <span class="toggle-btn" onclick="toggleDescription(this)">Show description</span>
+            </p>
+            <div class="pub-description">{{ pub.description }}</div>
+        {% endif %}
+
         <hr style="border: none; border-top: 1px solid #ddd; margin: 12px 0;">
     </div>
 {% endfor %}
+
+<script>
+function toggleDescription(el) {
+    const desc = el.parentElement.nextElementSibling;
+    const isVisible = desc.style.display === "block";
+    desc.style.display = isVisible ? "none" : "block";
+    el.textContent = isVisible ? "Show description" : "Hide description";
+}
+</script>

@@ -1,3 +1,8 @@
+- title: "Apertus: Democratizing Open and Compliant LLMs for Global Language Environments"
+  authors: "Apertus Team"
+  year: 2025
+  arxiv: "https://arxiv.org/abs/2509.14233"
+
 - title: "RL for Reasoning by Adaptively Revealing Rationales"
   authors: "Mohammad Hossein Amani, Aryo Lotfi, Nicolas Mario Baldwin, Samy Bengio, Mehrdad Farajtabar, Emmanuel Abbe, Robert West"
   year: 2025
@@ -5,6 +10,8 @@
   selected: true
   preview: rl_for_reasoning.png
   code: "https://github.com/mh-amani/LLM-RL"
+  description: "We proposed an adaptive curriculum-based RL algorithm that reveals partial rationales based on per-sample learning estimation of the value of a state. We demonstrate — both empirically and theoretically — a separation result: on complex reasoning tasks, neither SFT nor vanilla RL generalizes with increasing complexity, while AdaBack enables gradual abstraction learning — without ever fine-tuning on full demonstrations. "
+
 
 - title: "Symbolic autoencoding for self-supervised sequence learning"
   authors: "Mohammad Hossein Amani, Nicolas Mario Baldwin, Amin Mansouri, Martin Josifoski, Maxime Peyrard, Robert West"
@@ -16,6 +23,7 @@
   poster: ICML2024_sigmae_poster.pdf
   workshop_link: "https://differentiable.xyz/papers-2024/paper_32.pdf"
   workshop_name: "ICML'24 Workshop"
+  description: "In this project, we used straight-through estimators to optimize over a discrete latent space of sentences—effectively treating language itself as an optimizable hidden variable."
 
 - title: "Sharp asymptotics on the compression of two-layer neural networks"
   authors: "Mohammad Hossein Amani, Simone Bombari, Rattana  Pukdee, Stefano Rini, Marco Mondelli"
