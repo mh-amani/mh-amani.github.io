@@ -35,11 +35,15 @@
     <div class='wrap article'>
         {{ content }}
     </div>
+    {% capture bibliography_html %}{% bibliography --cited %}{% endcapture %}
+    {% assign bibliography_stripped = bibliography_html | strip %}
+    {% unless bibliography_stripped == "" or bibliography_stripped == '<ol class="bibliography"></ol>' %}
     <div id='bibliography'>
         <div class='wrap'>
-            {% bibliography --cited %}
+            {{ bibliography_html }}
         </div>
     </div>
+    {% endunless %}
 </div>
 </body>
 </html>

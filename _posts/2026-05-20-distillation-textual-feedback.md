@@ -40,7 +40,7 @@ Methods sort along three roughly orthogonal axes.
 
 Training with textual feedback started with execution-grounded RL on code, wiring raw `stderr` / `stdout` into the dialogue context (RLEF, late 2024) — no teacher in the loop, just verifier signal piped back to the model. The next wave used LLM-generated critiques as denser supervision than scalar verifier signal: either offline as SFT targets (CFT, ILF) or online as span/token rewards (Text2Grad) or as refined rollouts entering the GRPO group (Critique-GRPO, CTRL). Most recently, a "self-as-teacher" line collapses the teacher into the student — the same model conditioned on feedback or a demonstration produces supervision for the same model unconditioned, distilled via reverse-KL on on-policy trajectories (SDPO, SDFT, On-Policy Distillation). 
 
-On a parallel direction we also have inference-time scaffolding (Self-Refine, Reflexion, ReAct, TextGrad, Feedback Descent [7])=.) These works do not have a training step, just the model conditioned on feedback or a demonstration updates a certain text in a loop.
+On a parallel direction we also have inference-time scaffolding (Self-Refine, Reflexion, ReAct, TextGrad, Feedback Descent [7]). These works do not have a training step, just the model conditioned on feedback or a demonstration updates a certain text in a loop.
 
 The strongest empirical results in code and math today come from methods that move *all three axes simultaneously*: online, dense-credit, critique-rich. SDPO [1] is the current best demonstration on competitive code and chemistry; Critique-GRPO [4] and CTRL [6] are the strongest critique-trained-RL results on math and code respectively.
 
@@ -203,7 +203,7 @@ So the per-token advantage $A_{i,t}(\hat{y}_t) = \log \tfrac{\pi_\theta(\hat{y}_
 
 **Cluster:** LLM-critique-as-RL-signal (with [4], [6]).
 
-<img src="/assets/images/distillation-textual-feedback/text2grad01.png" alt="Text2Grad Architecture" style="zoom:33%;" />
+<img src="/assets/images/distillation-textual-feedback/text2grad01.png" alt="Text2Grad Architecture" width="500" />
 
 
 **Two things trained:**
@@ -1178,7 +1178,7 @@ Compute: ~2.5× FLOPs, ~4× wall-clock vs. SFT.
 
 Together they argue for a unified picture: *in-context-augmented self* as a universal substitute for an external teacher or reward model. The "feedback" can be a test result (SDPO), a demo (SDFT), or any context that improves the model's next-token distribution — and on-policy reverse-KL distillation converts that conditional improvement into a weight-space update without forgetting.
 
-<img src="/assets/images/distillation-textual-feedback/self-dist-enable-cont-learn-01.png" alt="Self-Distillation Enables Continual Learning" style="zoom:33%;" />
+<img src="/assets/images/distillation-textual-feedback/self-dist-enable-cont-learn-01.png" alt="Self-Distillation Enables Continual Learning" width="500" />
 
 **Example interaction** (partly verbatim from §3 + §4.5 + Appendix B.3; the per-task instantiation is reconstructed — the paper does not publish a worked end-to-end example):
 
