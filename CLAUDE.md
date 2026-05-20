@@ -39,7 +39,7 @@ Citations inside posts use `jekyll-scholar` against `_bibliography/references.bi
 1. Derives a slug by stripping `LITREV-`/`NOTE-`/`IDEA-`/`DEV-`/`REVIEW-` from the filename and lowercasing.
 2. Strips the first body H1 (the `default` layout already renders `{{ page.title }}` from front matter).
 3. Finds every `(\.\./)+assets/foo.png` reference, resolves it relative to the source file, copies the image to `assets/images/<slug>/foo.png`, and rewrites the path to absolute.
-4. Writes `_posts/YYYY-MM-DD-<slug>.md` with frontmatter (`title`, `subtitle`, `layout: default`, `date`, `keywords`, optionally `unlisted: true` + `sitemap: false`).
+4. Writes `_posts/YYYY-MM-DD-<slug>.md` with frontmatter (`title`, `subtitle`, `layout: default`, `date`, `keywords`, optionally `unlisted: true` + `sitemap: false`, plus `render_with_liquid: false`).
 
 Title/subtitle/keywords are prompted interactively unless passed as flags. Example:
 
@@ -47,6 +47,14 @@ Title/subtitle/keywords are prompted interactively unless passed as flags. Examp
 scripts/publish-post.py ~/repos/notebook/notes/LLMRL/LITREV-foo.md \
   --unlisted \
   --title "Foo" --subtitle "A review" --keywords "rl, llms"
+```
+
+**`render_with_liquid: false` is emitted by default** because notebook notes routinely contain `{{ ... }}` and `{% ... %}` literals (LM prompt templates, code samples) that Jekyll would otherwise try to parse as Liquid and fail the build. This disables Liquid for the post body only — the layout itself still uses Liquid for `{{ content }}`, the mathjax include, and the bibliography. **A past build failure had this exact cause** (literal `{%- if ... -%}` in a code block from the LITREV).
+
+To list the URLs of all unlisted posts:
+
+```bash
+scripts/publish-post.py --list-unlisted
 ```
 
 The script is the source of truth for the publishing pipeline — when adding new conventions (e.g., per-post asset folders, new front-matter flags), update it rather than documenting a manual workflow.
