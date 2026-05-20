@@ -131,6 +131,23 @@ h1 {
   font-size: 13px;
   line-height: 1.3em;
 }
+.article pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.article code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.article pre code {
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: pre;
+}
+.article img {
+  max-width: 100%;
+  height: auto;
+}
 .article ul {
   padding: 0 15px;
 }
