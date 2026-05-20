@@ -2,6 +2,7 @@ Jekyll::Hooks.register :site, :post_write do |site|
     all_keywords = []
 
     site.posts.docs.each do |post|
+        next if post.data["unlisted"]
         keywords = post.data["keywords"]
         next unless keywords
 

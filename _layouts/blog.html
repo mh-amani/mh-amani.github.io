@@ -18,6 +18,7 @@ permalink: /blog/
     {% else %}
         {% assign all_keywords = "" %}
         {% for post in site.posts %}
+            {% if post.unlisted %}{% continue %}{% endif %}
             {% assign keywords = post.keywords | split: "," %}
             {% for keyword in keywords %}
                 {% assign keyword = keyword | strip %}
@@ -52,6 +53,7 @@ permalink: /blog/
             <div class="keyword-container">
                 {% assign all_keywords = "" %}
                 {% for post in site.posts %}
+                    {% if post.unlisted %}{% continue %}{% endif %}
                     {% assign all_keywords = all_keywords | append: "," | append: post.keywords %}
                 {% endfor %}
                 {% assign unique_keywords = all_keywords | split: "," | uniq | sort %}
@@ -68,6 +70,7 @@ permalink: /blog/
 
         <div id='posts' class='section'>
             {% for post in site.posts %}
+                {% if post.unlisted %}{% continue %}{% endif %}
                 {% if page.keyword == null or post.keywords contains page.keyword %}
                     <div class='post-row'>
                         <p class='post-title'>
