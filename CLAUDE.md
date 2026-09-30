@@ -36,12 +36,16 @@ Citations inside posts use `jekyll-scholar` against `_bibliography/references.bi
 
 `scripts/publish-post.py` converts a markdown note from `~/repos/notebook/` (or anywhere) into a Jekyll post. It:
 
-1. Derives a slug by stripping `LITREV-`/`NOTE-`/`IDEA-`/`DEV-`/`REVIEW-` from the filename and lowercasing.
-2. Strips the first body H1 (the `default` layout already renders `{{ page.title }}` from front matter).
-3. Finds every `(\.\./)+assets/foo.png` reference, resolves it relative to the source file, copies the image to `assets/images/<slug>/foo.png`, and rewrites the path to absolute.
-4. Writes `_posts/YYYY-MM-DD-<slug>.md` with frontmatter (`title`, `subtitle`, `layout: default`, `date`, `keywords`, optionally `unlisted: true` + `sitemap: false`, plus `render_with_liquid: false`).
+1. If the note starts with a `---` YAML block, lifts `title` / `subtitle` / `keywords` from it (skipping the prompt for each field it finds). Simple `key: value` scalars only.
+2. Derives a slug by stripping `LITREV-`/`NOTE-`/`IDEA-`/`DEV-`/`REVIEW-` from the filename and lowercasing.
+3. Strips the first body H1 (the `default` layout already renders `{{ page.title }}` from front matter).
+4. Rewrites Obsidian image embeds `![[foo.png]]` and `![[foo.png|width]]` — resolves against the source dir's `assets/`, the source dir, the enclosing vault's `assets/`, then vault root (vault = first ancestor with `.obsidian/`) — copies into `assets/images/<slug>/` and rewrites as `![](/...)` normally, or `<img src="..." width="N">` when a width suffix is given.
+5. Finds every `(\.\./)+assets/foo.png` reference, resolves it relative to the source file, copies the image to `assets/images/<slug>/foo.png`, and rewrites the path to absolute.
+6. Resolves pandoc citations `[@key]` and `[@k1; @k2]` against `_bibliography/references.bib` **at publish time** (Liquid is off in the post body — see below — so `{% cite %}` is not an option). Emits `(Author, YYYY)` / `(Author & Coauthor, YYYY)` / `(Author et al., YYYY)` inline, and appends a `## References` section with author-year entries alphabetized by first author. Unknown keys warn on stderr and pass through as `@key`.
+7. Warns on unresolved `[[wikilinks]]`, which are left literal (paste blog URLs in manually).
+8. Writes `_posts/YYYY-MM-DD-<slug>.md` with frontmatter (`title`, `subtitle`, `layout: default`, `date`, `keywords`, optionally `unlisted: true` + `sitemap: false`, plus `render_with_liquid: false`).
 
-Title/subtitle/keywords are prompted interactively unless passed as flags. Example:
+Title/subtitle/keywords are prompted interactively unless passed as flags or lifted from frontmatter. Example:
 
 ```bash
 scripts/publish-post.py ~/repos/notebook/notes/LLMRL/LITREV-foo.md \
