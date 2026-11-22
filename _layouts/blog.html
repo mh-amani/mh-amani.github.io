@@ -2,40 +2,35 @@
 title: notebook
 permalink: /blog/
 ---
-
+{%- comment -%}
+  Unique, trimmed keywords across listed posts. Keep the unlisted filter here in
+  sync with the post loop below and _plugins/generate_keywords.rb.
+{%- endcomment -%}
+{%- assign all_keywords = "" -%}
+{%- for post in site.posts -%}
+    {%- if post.unlisted -%}{%- continue -%}{%- endif -%}
+    {%- assign post_keywords = post.keywords | split: "," -%}
+    {%- for raw_keyword in post_keywords -%}
+        {%- assign trimmed_keyword = raw_keyword | strip -%}
+        {%- if trimmed_keyword != "" -%}
+            {%- assign all_keywords = all_keywords | append: "," | append: trimmed_keyword -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor -%}
+{%- assign unique_keywords = all_keywords | split: "," | uniq | sort -%}
+<!DOCTYPE html>
 <html>
 <head>
     <title>notebook</title>
     <meta charset='UTF-8'>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
 
-    <meta name='description' content='Gregory Gundersen is a PhD candidate at Princeton.'>
-    <!-- A decent browser will parse this fine:
-         https://webmasters.stackexchange.com/questions/92744. -->
-    <meta name="keywords" content="
-    {% if page.keyword %}
-        {{ page.keyword | strip }}
-    {% else %}
-        {% assign all_keywords = "" %}
-        {% for post in site.posts %}
-            {% if post.unlisted %}{% continue %}{% endif %}
-            {% assign keywords = post.keywords | split: "," %}
-            {% for keyword in keywords %}
-                {% assign keyword = keyword | strip %}
-                {% unless all_keywords contains keyword or keyword == "" %}
-                    {% assign all_keywords = all_keywords | append: ", " | append: keyword %}
-                {% endunless %}
-            {% endfor %}
-        {% endfor %}
-        {{ all_keywords | remove_first: ", " }}
-    {% endif %}
-">
+    <meta name='description' content="masani's notebook: research notes and literature reviews on machine learning.">
+    <meta name="keywords" content="{% if page.keyword %}{{ page.keyword }}{% else %}{% for keyword in unique_keywords %}{% if keyword != "" %}{{ keyword }}{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %}{% endif %}">
     <meta name='author' content='masani'>
 
-    <!-- <link rel='shortcut icon' href='/favicon.jpg?v=e' /> -->
+    {% include favicon.html %}
     <link href="{{ "/css/blog.css" | prepend: site.baseurl }}" rel='stylesheet'/>
-    <!-- <link href='/css/blog.css' rel='stylesheet'/> -->
-    
 
     {% include mathjax.html %}
 </head>
@@ -45,15 +40,9 @@ permalink: /blog/
         <div id="filters">
             <p>Filter by topic:</p>
             <div class="keyword-container">
-                {% assign all_keywords = "" %}
-                {% for post in site.posts %}
-                    {% if post.unlisted %}{% continue %}{% endif %}
-                    {% assign all_keywords = all_keywords | append: "," | append: post.keywords %}
-                {% endfor %}
-                {% assign unique_keywords = all_keywords | split: "," | uniq | sort %}
                 {% for keyword in unique_keywords %}
                     {% if keyword != "" %}
-                        <a href="/blog/keywords/{{ keyword | slugify }}" class="keyword">{{ keyword }}</a>
+                        <a href="/blog/keywords/{{ keyword | slugify }}/" class="keyword">{{ keyword }}</a>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -65,7 +54,17 @@ permalink: /blog/
         <div id='posts' class='section'>
             {% for post in site.posts %}
                 {% if post.unlisted %}{% continue %}{% endif %}
-                {% if page.keyword == null or post.keywords contains page.keyword %}
+                {% assign show_post = false %}
+                {% if page.keyword == nil %}
+                    {% assign show_post = true %}
+                {% else %}
+                    {% assign post_keywords = post.keywords | split: "," %}
+                    {% for raw_keyword in post_keywords %}
+                        {% assign trimmed_keyword = raw_keyword | strip %}
+                        {% if trimmed_keyword == page.keyword %}{% assign show_post = true %}{% endif %}
+                    {% endfor %}
+                {% endif %}
+                {% if show_post %}
                     <div class='post-row'>
                         <p class='post-title'>
                             <a href="{{ post.url }}">

@@ -1,0 +1,44 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%}
+  Replaces the feed jekyll-feed would generate (it skips /feed.xml when this file
+  exists) so that `unlisted: true` posts stay out of the feed. Adapted from
+  jekyll-feed 0.17.0's lib/jekyll-feed/feed.xml.
+{%- endcomment -%}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
+  <link href="{{ page.url | absolute_url }}" rel="self" type="application/atom+xml" />
+  <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ page.url | absolute_url | xml_escape }}</id>
+  <title type="html">masani's notebook</title>
+  <author>
+    <name>masani</name>
+  </author>
+
+  {%- assign posts = site.posts | where_exp: "post", "post.unlisted != true" | where_exp: "post", "post.draft != true" -%}
+  {%- for post in posts limit: 10 %}
+  <entry>
+    {%- assign post_title = post.title | smartify | strip_html | normalize_whitespace | xml_escape %}
+    <title type="html">{{ post_title }}</title>
+    <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html" title="{{ post_title }}" />
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
+    <id>{{ post.id | absolute_url | xml_escape }}</id>
+    <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}"><![CDATA[{{ post.content | strip }}]]></content>
+    {%- if post.subtitle %}
+    <summary type="html"><![CDATA[{{ post.subtitle | strip_html | normalize_whitespace }}]]></summary>
+    {%- endif %}
+    {%- assign post_keywords = post.keywords | split: "," -%}
+    {%- for raw_keyword in post_keywords -%}
+      {%- assign trimmed_keyword = raw_keyword | strip -%}
+      {%- if trimmed_keyword != "" %}
+    <category term="{{ trimmed_keyword | xml_escape }}" />
+      {%- endif -%}
+    {%- endfor %}
+  </entry>
+  {%- endfor %}
+</feed>

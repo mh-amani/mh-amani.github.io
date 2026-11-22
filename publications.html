@@ -36,14 +36,15 @@ layout: default
             
             <span style="font-size: 14px; color: #444;">
                 {% assign authors_list = pub.authors | split: ", " %}
-                {% for author in authors_list %}
-                    {% if author contains "Amani" %}
-                        <strong>{{ author | strip }}</strong>
-                    {% else %}
-                        {{ author | strip }}
-                    {% endif %}
-                    {% if forloop.last == false %},{% endif %}
-                {% endfor %}
+                {%- for author in authors_list -%}
+                    {%- assign author_name = author | strip -%}
+                    {%- if author_name contains "Amani" -%}
+                        <strong>{{ author_name }}</strong>
+                    {%- else -%}
+                        {{ author_name }}
+                    {%- endif -%}
+                    {%- unless forloop.last -%}, {% endunless -%}
+                {%- endfor -%}
             </span>,
             {% if pub.journal %}
                 <i>{{ pub.journal }}</i>,

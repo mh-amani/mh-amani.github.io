@@ -7,8 +7,6 @@ keywords: computer science, machine learning
 published: true
 ---
 
-# title?
-
 ## Training Discrete Latent-Variable Models
 
 ### Estimating gradients via reparameterization and antithetic sampling

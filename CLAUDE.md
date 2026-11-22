@@ -16,6 +16,8 @@ bundle exec jekyll build
 
 First-time setup: `bundle install` (Ruby 3.1, Jekyll 4.0).
 
+Ruby 3.1 is what CI uses, but Homebrew no longer installs it (`ruby@3.1` is disabled). On Ruby 3.3, Jekyll 4.0 crashes with `undefined method '[]' for nil` in `logger.rb`, because Ruby 3.3 ships logger 1.6. To build locally without touching the repo's Gemfile, use a wrapper Gemfile outside the repo containing `eval_gemfile "<repo>/Gemfile"` and `gem "logger", "< 1.6"`, copy `Gemfile.lock` next to it, and run with `BUNDLE_GEMFILE` pointing at the wrapper.
+
 ## Architecture
 
 This is a personal academic website (`masani` / Mohammad Hossein Amani) built with **Jekyll 4** and deployed to GitHub Pages via the workflow in `.github/workflows/jekyll.yml` on every push to `main`. The deploy uses native Jekyll (not GitHub Pages' restricted gem set), so non-whitelisted plugins like `jekyll-scholar` work.
@@ -26,9 +28,11 @@ Top-level `.html` files (`index.html`, `about.html`, `publications.html`, `blog/
 
 ### Blog posts (`_posts/`) and the keywords plugin
 
-Posts use the `default` layout and render math via MathJax (loaded by `_includes/mathjax.html`, configured for `$...$` and `$$...$$` delimiters). Each post declares comma-separated `keywords:` in front matter. The `blog/blog.html` page is a 6-line stub that just sets `layout: blog`; the real listing template is `_layouts/blog.html`. After every build, `_plugins/generate_keywords.rb` (a Jekyll `:site, :post_write` hook) walks all posts, collects unique keywords, and writes one stub markdown file per keyword into `blog/keywords/`. Each stub uses `layout: blog` and a `keyword:` front-matter field; the layout reads `page.keyword` to filter the post list. **Do not hand-edit files under `blog/keywords/`** — they are regenerated on every build. The permalink scheme for posts is `/blog/:year/:month/:day/:title/` (see `_config.yml`).
+Posts use the `default` layout and render math via MathJax (loaded by `_includes/mathjax.html`, configured for `$...$` and `$$...$$` delimiters). Each post declares comma-separated `keywords:` in front matter. The `blog/blog.html` page is a 6-line stub that just sets `layout: blog`; the real listing template is `_layouts/blog.html`. `_plugins/generate_keywords.rb` is a `Jekyll::Generator` that walks all posts, collects unique trimmed keywords, and adds one in-memory page per keyword at `/blog/keywords/<slug>/` (`layout: blog`, `keyword:` set). The layout reads `page.keyword` and shows posts whose comma-separated keywords include it exactly. Nothing is written to `blog/keywords/` in the source tree. (An earlier `:post_write` hook wrote stub files there after the build, so on a clean CI checkout only the committed stubs existed and new keywords 404'd.) The permalink scheme for posts is `/blog/:year/:month/:day/:title/` (see `_config.yml`).
 
-Posts marked `unlisted: true` in their front matter are filtered out of the blog listing, the keyword filter pills, the `<meta keywords>` tag, and the keyword-stub generator. Combined with `sitemap: false`, this gives an unguessable-by-browsing post that still renders at its normal permalink. Filtering happens in three places: two loops in `_layouts/blog.html` and the `each` in `_plugins/generate_keywords.rb` — keep them in sync if you add another loop over `site.posts`. **Caveat:** `jekyll-feed` has no per-post exclude, so unlisted posts still appear in `/feed.xml`.
+Posts marked `unlisted: true` in their front matter are filtered out of the blog listing, the keyword filter pills, the `<meta keywords>` tag, the keyword-page generator, and the Atom feed. Combined with `sitemap: false`, this gives an unguessable-by-browsing post that still renders at its normal permalink. Filtering happens in three files: the keyword and post loops in `_layouts/blog.html`, the `each` in `_plugins/generate_keywords.rb`, and the `where_exp` in `feed.xml`. Keep them in sync if you add another loop over `site.posts`.
+
+`feed.xml` at the repo root is a hand-written Atom template adapted from jekyll-feed 0.17.0. jekyll-feed skips generating `/feed.xml` when the source already has one, and its own template has no per-post exclude, so this file is what keeps unlisted posts out of the feed. It lists the 10 newest listed posts.
 
 Citations inside posts use `jekyll-scholar` against `_bibliography/references.bib`; `_layouts/default.html` renders `{% bibliography --cited %}` at the bottom of each article.
 
@@ -73,5 +77,6 @@ CSS lives in `css/`. `blog.less` is the source for `blog.css`; if you change sty
 
 ### Conventions
 
-- Math is rendered with **MathJax**, not KaTeX, despite `jekyll-katex` being in the `Gemfile`/`_config.yml`. The KaTeX plugin is currently dead weight — the `default` layout only loads MathJax. If you write a new layout, include `_includes/mathjax.html` for math support, or remove `jekyll-katex` from the Gemfile if cleaning up.
-- `_config.yml` has `url: "http://127.0.0.1:4000"` hard-coded for local dev. The GitHub Actions build passes `--baseurl` explicitly, so don't rely on `site.url` for production links — use `relative_url`/`prepend: site.baseurl` like the existing templates do.
+- Math in post bodies is rendered with **MathJax** (`_includes/mathjax.html`). If you write a new layout, include it for math support. `jekyll-katex` is still required: `_layouts/blog.html` wraps post titles and subtitles in its `{% katexmm %}` tag, so removing the gem breaks the build.
+- `_config.yml` sets `url: "https://mh-amani.github.io"`, which `jekyll-sitemap` and `feed.xml` use for absolute links. `jekyll serve` replaces it with the local address automatically. For in-site links, use `relative_url`/`prepend: site.baseurl` like the existing templates do.
+- Every page's `<head>` starts with `<!DOCTYPE html>` (standards mode) and includes `_includes/favicon.html` (`/favicon.png` and `/apple-touch-icon.png`, cropped from `assets/images/masani.jpg`). Keep both in any new self-contained page or layout.
