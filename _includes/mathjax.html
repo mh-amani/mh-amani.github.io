@@ -10,7 +10,27 @@
     options: {
       skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     },
-    loader: { load: ['[tex]/color'] }
+    loader: { load: ['[tex]/color'] },
+    startup: {
+      // MathJax 3 can't line-break inline math, so an inline formula wider
+      // than its paragraph gets the `mjx-wide` class (css/blog.css) and
+      // scrolls sideways inside its line instead of widening the page.
+      pageReady: function () {
+        return MathJax.startup.defaultPageReady().then(function () {
+          function markWide() {
+            document.querySelectorAll('mjx-container:not([display])').forEach(function (c) {
+              c.classList.remove('mjx-wide');
+              var block = c.closest('p, li, td, th, blockquote, div');
+              if (block && c.getBoundingClientRect().width > block.clientWidth) {
+                c.classList.add('mjx-wide');
+              }
+            });
+          }
+          markWide();
+          window.addEventListener('resize', markWide);
+        });
+      }
+    }
   };
 </script>
 

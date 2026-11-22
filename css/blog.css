@@ -36,7 +36,7 @@ h1 {
   display: none;
 }
 .wrap {
-  max-width: 700px;
+  max-width: 860px;
   margin: 0 auto;
 }
 .mono {
@@ -90,8 +90,8 @@ h1 {
   line-height: 1.6em;
 }
 .article {
-  font-size: 15px;
-  line-height: 1.6em;
+  font-size: 16px;
+  line-height: 1.65;
   color: rgba(0, 0, 0, 0.8);
   margin-top: 50px;
   margin-bottom: 50px;
@@ -125,12 +125,6 @@ h1 {
 .article .footnote {
   line-height: 0;
 }
-.article div.highlight {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  font-size: 13px;
-  line-height: 1.3em;
-}
 .article pre {
   overflow-x: auto;
   max-width: 100%;
@@ -148,8 +142,9 @@ h1 {
   max-width: 100%;
   height: auto;
 }
-.article ul {
-  padding: 0 15px;
+.article ul,
+.article ol {
+  padding-left: 1.6em;
 }
 .article hr {
   border-bottom: none;
@@ -247,8 +242,95 @@ h1 {
 hr {
   border-top: #ccc;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 892px) {
   body {
-    margin: 0 7px;
+    margin: 0 16px;
   }
+}
+
+/* Long-form posts: headings, lists, tables, code, math, figures. */
+.article h3 {
+  font-size: 20px;
+  margin-top: 1.8em;
+}
+.article h4 {
+  font-size: 17px;
+  margin-top: 1.6em;
+}
+.article h5,
+.article h6 {
+  font-size: 16px;
+  margin-top: 1.4em;
+}
+.article li + li {
+  margin-top: 0.25em;
+}
+.article blockquote {
+  color: #555;
+}
+.article table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.article th,
+.article td {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 6px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.article thead th {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.article tbody tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+.article code {
+  font-family: SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.875em;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+.article pre {
+  background-color: #f6f6f6;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.article pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+/* Fences without a language (prompts, plain text) wrap instead of scrolling.
+   Rouge marks them `highlighter-rouge` with no `language-*` class. */
+.article .highlighter-rouge:not([class*="language-"]) pre code,
+.article .language-text pre code,
+.article .language-plaintext pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.article mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+/* Set by _includes/mathjax.html on inline formulas wider than their block. */
+.article mjx-container.mjx-wide {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+}
+.article p > img:only-child {
+  display: block;
+  margin: 1em auto;
 }

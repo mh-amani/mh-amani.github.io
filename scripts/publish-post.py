@@ -26,7 +26,10 @@ What this does (publish path, given a source markdown file):
      `(Smith et al., 2024)`. A `## References` section is appended with
      author-year formatted entries, alphabetized by first author.
   7. Warn on unresolved `[[wikilinks]]` (left literal in the output — the
-     user manually pastes URLs later if needed).
+     user manually pastes URLs later if needed). Insert a blank line after
+     any table immediately followed by non-table text (outside code
+     fences): Obsidian ends a table there, but kramdown renders the whole
+     table as a paragraph of raw pipes.
   8. Write `_posts/YYYY-MM-DD-<slug>.md`. The emitted frontmatter always
      includes `render_with_liquid: false` — notebook notes commonly
      contain `{{ ... }}` and `{% ... %}` literals in code samples and
@@ -334,6 +337,30 @@ def build_references_section(bib_entries: dict, cited_keys) -> str:
     return "\n".join(lines)
 
 
+FENCE_RE = re.compile(r"^\s*(`{3,}|~{3,})")
+
+
+def separate_tables(body: str) -> str:
+    """Add a blank line after a table row followed directly by non-table text."""
+    lines = body.split("\n")
+    out = []
+    fence = None
+    for i, line in enumerate(lines):
+        out.append(line)
+        m = FENCE_RE.match(line)
+        if m and fence is None:
+            fence = m.group(1)[0]
+            continue
+        if fence is not None:
+            if m and m.group(1)[0] == fence:
+                fence = None
+            continue
+        nxt = lines[i + 1] if i + 1 < len(lines) else ""
+        if line.lstrip().startswith("|") and nxt.strip() and not nxt.lstrip().startswith("|"):
+            out.append("")
+    return "\n".join(out)
+
+
 def warn_wikilinks(body: str) -> None:
     for m in WIKILINK_RE.finditer(body):
         print(f"  WARN unresolved wikilink: [[{m.group(1)}]]", file=sys.stderr)
@@ -406,6 +433,7 @@ def main() -> int:
     body = H1_RE.sub("", body, count=1).lstrip("\n")
     body = process_obsidian_images(body, source.parent, img_dest, slug)
     body = process_relative_assets(body, source.parent, img_dest, slug)
+    body = separate_tables(body)
 
     bib_entries = parse_bibliography(site_root / "_bibliography" / "references.bib")
     body, cited = process_citations(body, bib_entries)
