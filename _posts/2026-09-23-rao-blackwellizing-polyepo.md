@@ -144,22 +144,20 @@ at 32 rollouts, if rollout variance is 100 units, sampling 70 sets adds 48: tota
 we train two models for a target of 100 steps: exact advantages versus 70 sampled sets. both use the Poly-EPO trainer, 32 rollouts, sets of 8, 128 questions per step, and learning rate $10^{-6}$, with the same questions and other settings:
 <img src="/assets/images/rao-blackwellizing-polyepo/training_accuracy.png" width="704">
 
-training accuracy: the fraction of generated training answers that are correct, averaged over each step range.
 
-| steps | all sets | 70 sampled sets |
-|---|---|---|
-| 1–20 | 16.5% | 16.1% |
-| 21–40 | 20.9% | 19.8% |
-| 41–60 | 23.5% | 23.1% |
-| 61–80 | 23.2% | 22.4% |
-| 81–98 | 26.5% | 25.5% |
+held-out accuracy after 100 steps: the fraction of 16 attempts per question that are correct.
 
-## conclusion
+| held-out set | before training | all sets  | 70 sampled sets |
+| ------------ | --------------- | --------- | --------------- |
+| AIME25       | 3.3%            | **10.8%** | 6.7%            |
+| BeyondAIME   | 1.2%            | **4.1%**  | 3.6%            |
+| Minerva      | 16%             | **33.5%** | 32.8%           |
+
+exact advantages are ahead on all three, but with one run each, and only 30 AIME25 questions, the gap is within noise.
+
+## closing remarks
 
 in short, the formula removes set-sampling noise and, personally most gratifying to me, the need to choose $K$. at the paper's size, all 70 sets are cheap to enumerate; the benefit is computing exact advantages at larger $N$ and $n$. the judge cost is unchanged.
-
 the training gain over 70 sampled sets is small over these few iterations, but it is consistent.
 
-## code
-
-closed-form implementation and tests: [mh-amani/polyepo, branch scaling-polyepo-to-many-groups](https://github.com/mh-amani/polyepo/tree/scaling-polyepo-to-many-groups).
+**the code** including closed-form implementation and tests live here: [mh-amani/polyepo, branch scaling-polyepo-to-many-groups](https://github.com/mh-amani/polyepo/tree/scaling-polyepo-to-many-groups).
