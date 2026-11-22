@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Lowercase "m", drawn as strokes (no font needed). Dark grey like the
+       site's text; light grey when the browser is in dark mode. -->
+  <style>
+    path { stroke: #333333; }
+    @media (prefers-color-scheme: dark) { path { stroke: #e6e6e6; } }
+  </style>
+  <path fill="none" stroke-width="8" stroke-linecap="butt" stroke-linejoin="round"
+        d="M13 15.5 V48 M13 29 C13 21.5 17 19.5 22.5 19.5 S32 21.5 32 29 V48 M32 29 C32 21.5 36 19.5 41.5 19.5 S51 21.5 51 29 V48"/>
+</svg>
