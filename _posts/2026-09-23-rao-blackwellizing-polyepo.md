@@ -2,7 +2,7 @@
 title: Rao-Blackwellizing poly-epo's advantage
 subtitle: A closed form for Poly-EPO's all-sets advantage, and what it does to gradient noise
 layout: default
-date: 2026-11-22
+date: 2026-09-23
 keywords: reinforcement learning, language models, variance reduction
 render_with_liquid: false
 published: true

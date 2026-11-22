@@ -29,7 +29,6 @@ permalink: /blog/
     <meta name="keywords" content="{% if page.keyword %}{{ page.keyword }}{% else %}{% for keyword in unique_keywords %}{% if keyword != "" %}{{ keyword }}{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %}{% endif %}">
     <meta name='author' content='masani'>
 
-    {% include favicon.html %}
     <link href="{{ "/css/blog.css" | prepend: site.baseurl }}" rel='stylesheet'/>
 
     {% include mathjax.html %}

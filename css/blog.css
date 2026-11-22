@@ -36,7 +36,7 @@ h1 {
   display: none;
 }
 .wrap {
-  max-width: 860px;
+  max-width: 700px;
   margin: 0 auto;
 }
 .mono {
@@ -90,8 +90,8 @@ h1 {
   line-height: 1.6em;
 }
 .article {
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.6em;
   color: rgba(0, 0, 0, 0.8);
   margin-top: 50px;
   margin-bottom: 50px;
@@ -242,8 +242,22 @@ h1 {
 hr {
   border-top: #ccc;
 }
-@media screen and (max-width: 892px) {
+@media screen and (max-width: 700px) {
   body {
+    margin: 0 7px;
+  }
+}
+/* Blog posts (body.post, set in _layouts/default.html) get a wider reading
+   column and larger text; other pages keep the 700px / 15px look. */
+body.post .wrap {
+  max-width: 860px;
+}
+body.post .article {
+  font-size: 16px;
+  line-height: 1.65;
+}
+@media screen and (max-width: 892px) {
+  body.post {
     margin: 0 16px;
   }
 }

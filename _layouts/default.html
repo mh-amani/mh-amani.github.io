@@ -9,15 +9,13 @@
     <meta name='keywords' content='{{ page.keywords }}'>
     <meta name='author' content='masani'>
 
-    {% include favicon.html %}
-
     <link href='/css/blog.css' rel='stylesheet'/>
     <link href='/css/trac.css' rel='stylesheet'/>
     <link href='/css/markdown.css' rel='stylesheet'/>
 
     {% include mathjax.html %}
 </head>
-<body>
+<body{% if page.collection == "posts" %} class='post'{% endif %}>
 <div class='content'>
     {% include nav.html %}
     <div class='front-matter'>
